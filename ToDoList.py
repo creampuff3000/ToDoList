@@ -50,5 +50,18 @@ def toDoList():
                             list.append(y)
                             print("This is what you're going to add to the original file: " + str(list))
                             continue
+                    m = input("Would you like to know how many characters are in your list? y/n ")
+                    if m == "y":
+                        old = open('/Users/justinluo/projects/toDoList/ToDoList.txt', 'r+')
+                        count = 0
+                        countingList = old.readlines()
+                        for i in countingList:
+                            count += len(i)
+                            print(count)
+                            continue
+                        else:
+                            exit(0)
+                    else:
+                        exit(0)
                 else:
                     exit(0)
