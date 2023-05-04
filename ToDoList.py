@@ -23,7 +23,9 @@ def toDoList():
                 y = input("What would you like to add? (You can stop by writing 'endingKey') ")
                 if y == "endingKey":
                     print("This is your final list: " + str(list))
-                    old.writelines(list)
+                    for i in list:
+                        old.writelines(i)
+                        old.writelines("\n")
                     old.close()
                     break
                 else:
@@ -36,12 +38,14 @@ def toDoList():
                     readFile(old)
                     old.close()
                     while True:
-                        y = input("What would you like to add? (You can stop by writing 'endingKey', please write with quotes) ")
+                        y = input("What would you like to add? (You can stop by writing 'endingKey' ")
                         if y == "endingKey":
                             old = open('/Users/justinluo/projects/toDoList/ToDoList.txt', 'a')
-                            print(list)
-                            old.writelines(list)
+                            for i in list:
+                                old.writelines(i)
+                                old.writelines("\n")
                             list = []
+                            old.close()
                             readFile(old)
                             old.close()
                             break
@@ -55,13 +59,14 @@ def toDoList():
                         old = open('/Users/justinluo/projects/toDoList/ToDoList.txt', 'r+')
                         count = 0
                         countingList = old.readlines()
+                        print(countingList)
                         for i in countingList:
                             count += len(i)
-                            print(count)
-                            continue
-                        else:
-                            exit(0)
+                            count -= 1
+                        print(count)
+                        exit(0)
                     else:
                         exit(0)
                 else:
                     exit(0)
+                    
